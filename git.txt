@@ -1,0 +1,32 @@
+steps to work on
+--to initialize git
+1- git init (only done once)
+--zy clone bs use it instead
+2- git remote add origin https://github.com/MohammedAnsary/Wordspace (only done once)
+--pull from origin master always
+3- git pull origin master
+-- create your own branch to work on
+4- git checkout -b [name_of_your_new_branch] (do not use symbols!)
+-- after done add your work
+5- git add -A
+-- commit your work
+6- git commit -m "#[issue_number] [your_message]"
+--always push to your own branch
+7- git push origin [your_branch_name]
+------------------------------------------------------------------------------------------------------------------------------
+some Extra commands
+--delete a branch
+git branch -d [branch_name] (use carefully)
+-- rename current branch
+git branch -m [new_branch_name]
+------------------------------------------------------------------------------------------------------------------------------
+for reviewers
+-- to switch to the branch you want to review
+1- git checkout [target_branch]
+-- pull from branch
+2- git pull origin [branch_name]
+-- after done reviewing if everything is alright switch to master
+3- git checkout master
+4- git merge [branch_reviewed]
+
+

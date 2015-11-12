@@ -1,0 +1,116 @@
+tutorial: https://www.youtube.com/watch?v=lDpnaE724PA
+Ruby:-
+1-methods in ruby:-
+a- to define a method --> def "methodName" --> method body --> end 
+b-method with params def "methodName(param1,param2,..)
+
+2- hashes in ruby:- 
+hash:-user= {'first_name'=> 'john', 'last_name' => 'doe'}
+array of hashes:- users=[{'first_name'=> 'john', 'last_name' => 'doe'}, {'first_name'=> 'omar', 'last_name' => 'essam'}]
+
+3-loops in ruby:-
+a- 5.times do puts "i am learning ruby" end
+b- 5.times { puts "i am learning ruby" }
+c-  3.upto(10) {puts "this is fun"} (inclusive)
+d-  3.downto(2) {puts "this is fun"}
+e- normal while loops
+f-  planets= ["omar", "shadwa" ,"Nouran", "Mody", "Hariry"]
+	planets.each{|x|puts x}
+
+4- classes&objects in ruby
+a- class Class_name
+b- attr_accessor :attr1, :attr2,..
+c- end
+d- object1= Class_name.new
+e- object2.attr1= ....
+f- class sub_class < super_class (inheritance)
+-------------------------------------------------------------------------------------------------------------
+Rails:-
+
+
+
+
+1- to generate controllers "rails generate controller "controllerName" "viewName"
+
+2- to change home page go to config/routes.rb and uncomment "root 'controller#homepage'"
+
+3- after creating a controller head to routes.rb and give it the resources(edit, new, create, destroy, index, show, & update) by typing resources :"controllerName"
+
+4- define these 7 methods in the controller file
+
+5- then in the views folder create and .html.erb file for each one of these
+
+6- to grab a variable from the controller define the variable in the method like this---> "@varName" 
+eg: if you wanna grab a variable in the index file define that variable in the index method in the controller
+
+ then just put that variable inside ruby tags <%= var name%> (the '=' is for showing that piece of code in the website)
+
+7- to setup a model for your database type "rails g model modelName(HAS TO BE SINGULAR) column name:type"
+
+8-to create the tables type rake db:migrate
+	you should modify your files with relations 
+
+9- to add new info to database open rails c
+
+   then create an instance of the class with the required attributes  
+   (as   a hash)
+   after that typy instanceName.save
+
+  or simply when creating an instance instead of className.new use 
+  className.create
+
+10- to find a certain element simple type tableName.find(index)
+
+11- to update find first then found.update_attribute(:columnName, newValue) -->this is for updating a single value
+and for multiple attributes found.update_attributes(:column1 =>newVal1, :column2 => newVal)
+
+12- to show dynamic data define a variable in the controller get all data you wanna get then loop on them in the view
+
+13- to show a specific post type @post= Post.find(params[:id]) and grab that in teh show fiie
+
+14- to transfer to link link_to from,to
+
+15- to allow access for certain parameters :-
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :salt, :encrypted_password)
+  end
+
+16- to create a form:-
+<h1>Add New Post</h1>
+<%= form_for @post do |f| %>
+<p>
+<%= f.label :title %>
+<br>
+<%= f.text_field :title %> <br><br>
+</p>
+
+<p>
+<%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => "Select One"} %> <br><br>
+</p>
+
+<p>
+<%= f.label :body %>
+<br>
+<%= f.text_area :body %> <br><br>
+</p>
+<p> <%= f.submit "Add Post" %> </p>
+<% end %>
+
+ in the new action:-
+@post= Post.new
+in the create action:-
+@post = Post.new(post_params)
+		if @post.save
+			redirect_to posts_path, :notice => "your post 
+			has been saved"
+		else 
+			render "new"
+		end
+
+17- to pass a parameter when directing link_to c.name,categories_path(:name => c.name) 
+
+18- to check if a variable exists params[...].blank?
+add attribute to table
+rails generate migration AddDetailsToArticle user_id:integer
+conditioned find and order Bid.where({user_id:12, status:2 }).order(created_at: :desc)

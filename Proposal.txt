@@ -1,0 +1,12 @@
+3ayzeen rabe3 is an app which helps when a group of people is playing a game and it's missing one or more players:
+for example if you want to play tarneeb and you need a 4th player all you need to do is open the app check for possible players around you and then you can
+ ping one of the possible players to play
+feattures of the app will be:
+register as an available group
+only show available groups of the game you want to play
+know the nearest players to your location
+post on your timeline the scores of your game
+share your posts on facebook or any other social media
+message one of your firends
+suggest new games for future releases
+and much more (including the main required features i didnt mention)!
