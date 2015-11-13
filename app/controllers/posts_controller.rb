@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @post = Post.find :all
   end
@@ -12,11 +13,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new params[:post]
-    current_user.user_id = 1
-    @post.user_id = current_user.user_id
-    @post.receiver_id = params[:id]
-    @post.content = params[:content]
+    @post = Post.new(post_params)
+    @post.user_id = 1                      #change later @post.user_id = current_user.user_id
+    @post.receiver_id = 1                  #change later to get user_id from users/show
     if @post.save
       redirect_to :action => 'show', :id => @post.id
     else
@@ -28,4 +27,11 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
     @post.destroy
   end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:content)
+  end
+
 end

@@ -1,0 +1,38 @@
+<%= form_for @group, :url => {:action => "create"} do |f| %>
+<p>
+<%= f.label :activity_id %>
+<br>
+<%= f.text_field :activity_id %> <br><br>
+</p>
+<br>
+
+<p>
+<%= f.label :x_loc %>
+<br>
+<%= f.text_field :x_loc %> <br><br>
+</p>
+<br>
+
+<p>
+<%= f.label :y_loc %>
+<br>
+<%= f.text_field :y_loc %> <br><br>
+</p>
+<br>
+
+<p>
+<%= f.label :privacy %>
+<br>
+<%= f.text_field :privacy %> <br><br>
+</p>
+<br>
+
+<p>
+<%= f.label :max_members %>
+<br>
+<%= f.text_field :max_members %> <br><br>
+</p>
+<br>
+
+<p> <%= f.submit "Add group" %> </p>
+<% end %>

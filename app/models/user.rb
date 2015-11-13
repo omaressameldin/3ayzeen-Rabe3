@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   validates :gender, presence:true
   validates :phone_number, presence:true
 
-  has_many :posts ,  dependent: :update
-  has_many :comments,dependent: :update
-  has_many :groups, :through => :group_members , dependent: :update
-  has_many :group_members, dependent: :update
+  # has_many :posts ,  dependent: :update
+  # has_many :comments,dependent: :update
+  # has_many :groups, :through => :group_members , dependent: :update
+  # has_many :group_members, dependent: :update
 end
