@@ -1,0 +1,2 @@
+class ActivitySuggestionsController < ApplicationController
+end
