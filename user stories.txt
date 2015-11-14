@@ -1,16 +1,20 @@
-1- As a user i should be able to sign up using social media
-2- As a user i should be able to add friends //needs table
-3- As a user i should be able to write posts
-4- As a user i should be able to comment on posts
-5- As a user i should be able to write on my friends timeline
-6- As a user i should be able to share the posts i write
-7- As a user i should be able to view my frineds' profiles
-8- As a user i should be able to follow any other user
-9- As a user i should be able to view my timeline
-10- As a user i should be able to post on my timeline
-11- As a user i should be able to see available surrounding groups/available players
-12- As a user i should be able to filter available surrounding groups/available players by type of activity, privacy level, or single player or group
-13- As a user i should be able to create a group for a specific activity
-14- As a user i should be able to allow my location to be visible for certain activities
-15- As a user i should be able to ping/request join an available group  or invite other members //needs new attribute
-16- As a user i should be able to suggest new activities for future releases //needs table
+#posts
+--As a user i should be able to write posts
+As a user i should be able to comment on posts
+--As a user i should be able to write on my friends timeline
+As a user i should be able to share the posts i write //AddThis
+
+#users
+ As a user i should be able to sign up using social media
+ As a user i should be able to add friends //needs table
+ --As a user i should be able to view users' profiles
+ As a user i should be able to follow any other user
+ --As a user i should be able to view my timeline
+
+ #groups
+ --As a user i should be able to create a group for a specific activity
+ As a user i should be able to see available surrounding groups/available players
+ As a user i should be able to filter available surrounding groups/available players by type of activity, privacy level, or single player or group
+ As a user i should be able to ping/request join an available group  or invite other members
+ As a user i should be able to allow my location to be visible for certain activities
+ As a user i should be able to suggest new activities for future releases //needs table

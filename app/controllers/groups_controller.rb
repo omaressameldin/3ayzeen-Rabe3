@@ -5,14 +5,8 @@ class GroupsController < ApplicationController
   end
   def create
     @group = Group.new(group_params)
+    #static for now
     @group.user_id = 1
-    # @group.activity_id = params[:activity_id]
-    # @group.privacy = params[:privacy]
-    # @group.max_members = params[:max_members]
-    # #@group.start_time = params[:start_time]
-    # #@group.end_time = params[:end_time]
-    # @group.x_loc = params[:x_loc]
-    # @group.y_loc = params[:y_loc]
     if @group.save
       @groupM = GroupMember.new
       @groupM.group_id = @group.id
@@ -31,14 +25,23 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
 
+  def nearby
+    @group = Group.find()
+    if(@group.privacy == 0)
+    @users = User.where({user_id:12, status:2 })
+  end
+
   def new
     @group = Group.new
+  end
+
+  def invite
   end
 
   private
 
   def group_params
-    params.require(:group).permit(:activity_id, :privacy, :max_members, :start_time, :end_time, :x_loc, :y_loc) 
+    params.require(:group).permit(:activity_id, :privacy, :max_members, :start_time, :end_time, :x_loc, :y_loc)
 
    end
 

@@ -1,0 +1,17 @@
+<%= form_for @activity, :url => {:action => "create"} do |f| %>
+<p>
+<%= f.label :name %>
+<br>
+<%= f.text_field :name %> <br><br>
+</p>
+<br>
+
+<p>
+<%= f.label :des %>
+<br>
+<%= f.text_field :des %> <br><br>
+</p>
+<br>
+
+<p> <%= f.submit "Add activity" %> </p>
+<% end %>
