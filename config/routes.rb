@@ -19,6 +19,17 @@ get 'activities' =>'activities#index'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  resources :users
+
+
+  get 'posts/new' =>'posts#new'
+  post 'posts/create' =>'posts#create'
+  get 'posts/:id' =>'posts#show'
+  # resources :posts
+
+  get 'comments/new' =>'comments#new'
+  post 'comments/create' =>'comments#create'
+  get 'comments/:id' =>'comments#show'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

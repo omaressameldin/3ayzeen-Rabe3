@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   has_many :groups, :through => :group_members , dependent: :destroy
   has_many :groupMembers, dependent: :destroy
   has_many :UserPrivacies, dependent: :destroy
+
 end

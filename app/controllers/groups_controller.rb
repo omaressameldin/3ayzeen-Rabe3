@@ -1,8 +1,5 @@
 class GroupsController < ApplicationController
 
-  def show
-    @group = Group.find(params[:id])
-  end
   def create
     @group = Group.new(group_params)
     #static for now
@@ -44,6 +41,4 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:activity_id, :privacy, :max_members, :start_time, :end_time, :x_loc, :y_loc)
 
    end
-
-
 end

@@ -1,0 +1,31 @@
+
+
+name: <%= @user.last_name %><br>
+
+<br>
+post here
+<hr>
+<br>
+<%= form_for @post, :url => {controller: "posts", :action => "create"} do |f| %>
+<p>
+<%= f.label :content %>
+<br>
+<%= f.text_field :content %> <br><br>
+</p>
+<br>
+<p> <%= f.submit "Add post" %> </p>
+<% end %>
+<br>
+<hr>
+<% @myPost.each do |p| %>
+  content: <%= p.content %><br>
+  <% p.comments.each do |c|%>
+    comment : <%= c.content %>
+  <% end %>
+  <%= form_for @comment, :url => {controller: "comments", :action => "create"} do |f| %>
+  <p><%= f.label :content %><br>
+  <%= f.text_field :content %></p>
+  <p> <%= f.submit "Add comment" %> </p>
+  <% end %>
+  from : <%= p.user_id%><br>
+<% end %>
