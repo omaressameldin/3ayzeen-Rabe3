@@ -19,6 +19,13 @@ post here
 <hr>
 <% @myPost.each do |p| %>
   content: <%= p.content %><br>
-  
+  <% p.comments.each do |c|%>
+    comment : <%= c.content %>
+  <% end %>
+  <%= form_for @comment, :url => {controller: "comments", :action => "create"} do |f| %>
+  <p><%= f.label :content %><br>
+  <%= f.text_field :content %></p>
+  <p> <%= f.submit "Add comment" %> </p>
+  <% end %>
   from : <%= p.user_id%><br>
 <% end %>

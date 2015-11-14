@@ -10,8 +10,10 @@ class UsersController < ApplicationController
     # @user2.user_id = params[:id]        # use this to send receiver_id to post#create
     @post = Post.new
     @myPost = Post.new
+
     @myPost = Post.where({user_id: params[:id]})
-    # @comment = Comment.new
+    @myPostc = @myPost.all.includes(:comments)
+    @comment = Comment.new
   end
 
   def new
