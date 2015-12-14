@@ -1,6 +1,6 @@
 #posts
 --As a user i should be able to write posts
-As a user i should be able to comment on posts
+--As a user i should be able to comment on posts
 --As a user i should be able to write on my friends timeline
 As a user i should be able to share the posts i write //AddThis
 

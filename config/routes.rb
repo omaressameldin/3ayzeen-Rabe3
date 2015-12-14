@@ -25,7 +25,7 @@ get 'activities' =>'activities#index'
   get 'posts/new' =>'posts#new'
   post 'posts/create' =>'posts#create'
   get 'posts/:id' =>'posts#show'
-  # resources :posts
+   resources :posts
 
   get 'comments/new' =>'comments#new'
   post 'comments/create' =>'comments#create'
