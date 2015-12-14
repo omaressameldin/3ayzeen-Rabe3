@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     @myPost = Post.where({user_id: params[:id]})
     @myPostc = @myPost.all.includes(:comments)
     @comment = Comment.new
+
+    render json: @user
+
   end
 
   def new
