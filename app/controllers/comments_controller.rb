@@ -13,10 +13,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new comment_params
-    @comment.user_id = 1                                   #change it to session[:id]
-    @comment.post_id = 1                                   #change it to value of post_id
+    @post = Post.find(@comment.post_id)
+    #@comment.user_id = 1                                   #change it to session[:id]
+    #@comment.post_id = 1                                   #change it to value of post_id
     if @comment.save
-      redirect_to :action => 'show', :id => @comment.id
+      redirect_to :controller => 'posts', :action => 'index', :id => @post.receiver_id
     else
       render :action => 'new'
     end
@@ -30,7 +31,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.permit(:user_id, :post_id, :content)
   end
 
 end

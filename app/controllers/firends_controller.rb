@@ -1,2 +1,0 @@
-class FirendsController < ApplicationController
-end

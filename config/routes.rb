@@ -22,15 +22,17 @@ get 'activities' =>'activities#index'
   resources :users
   get 'friendships/create/:user_id/:receiver_id' =>'friendships#create'
   get 'users/index/:user_id' =>'users#index'
+  get 'users/friends/:user_id' =>'users#friends'
   resources :friendships
 
   get 'posts/new' =>'posts#new'
-  post 'posts/create' =>'posts#create'
+  get 'posts/create/:user_id/:receiver_id/:content' =>'posts#create'
   get 'posts/:id' =>'posts#show'
+  get 'posts?id=:id' =>'posts#show'
    resources :posts
 
   get 'comments/new' =>'comments#new'
-  post 'comments/create' =>'comments#create'
+  get 'comments/create/:user_id/:post_id/:content' =>'comments#create'
   get 'comments/:id' =>'comments#show'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):

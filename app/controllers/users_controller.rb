@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     @myPost = Post.where({user_id: params[:id]})
     @myPostc = @myPost.all.includes(:comments)
     @comment = Comment.new
+
+    render json: @user
+  end
+
+  def friends
+    @user = User.find params[:user_id]
     @friendship = Friendship.all.where("user_id = ?", @user.id)
     arr = Array.new
     @friendship.each do |f|
