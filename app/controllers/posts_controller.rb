@@ -22,12 +22,11 @@ class PostsController < ApplicationController
     @posts = Post.all.where(:receiver_id => @user.id)
     arr = Array.new
     @posts.each do |p|
-    @comments = Comment.all.where(:post_id => p.id)
-    p.comments = @comments  
+    @comments = Comment.all.where(:post_id => p.id)  
     arr.push(p)
-    arr.push(p.comments)
+    #arr.push(p.comments)
     end
-    render json: arr
+    render json: @posts
   end
 
   def new

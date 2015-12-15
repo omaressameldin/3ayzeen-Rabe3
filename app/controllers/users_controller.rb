@@ -4,6 +4,20 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def hany
+    @user = User.new(user_params)
+    @u = User.where(:email => @user.email)
+    if(@u == nil  || @u == [])
+      if @user.save
+        redirect_to :action => 'show', :id => @user.id
+      else
+        render :action => 'new'
+      end
+    else
+      redirect_to :action => 'show', :id => @u.id
+    end
+  end
+
   def show
     @user = User.find params[:id]
     # @user2 = User.new
@@ -68,10 +82,12 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :password, :image, :x_loc, :y_loc, :gender, :available, :phone_number)
+    params.permit(:email, :first_name, :last_name, :password, :image, :x_loc, :y_loc, :gender, :available, :phone_number)
   end
 
 end
