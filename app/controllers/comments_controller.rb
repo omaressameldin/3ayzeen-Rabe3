@@ -5,6 +5,21 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find params[:id]
+
+    @post = Post.find params[:id]
+    #render js: @post
+    #render :json => @post, :include => tasks
+    #render :json => @post, :callback => 'updateRecordDisplay'
+    @user = User.find params[:id]
+    @posts = Post.all.where(:receiver_id => @user.id)
+    arr = Array.new
+    @posts.each do |p|
+    @comments = Comment.all.where(:post_id => p.id)  
+    arr.push(p)
+    #arr.push(p.comments)
+    end
+    render json: @post.comments
+
   end
 
   def new
