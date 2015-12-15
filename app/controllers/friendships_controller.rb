@@ -15,4 +15,17 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def destroy
+    @friendship = Friendship.where("user_id = ?", params[:user_id]).where("friend_id = ?", params[:receiver_id])
+    @friendship.destroy_all
+    @friendship = Friendship.where("user_id = ?", params[:receiver_id]).where("friend_id = ?", params[:user_id])
+    if @friendship.destroy_all
+      flash[:notice] = "remove friend."
+      redirect_to controller: 'users', action: 'index' , user_id: 1
+    else
+      flash[:notice] = "Unable to remove friend."
+      redirect_to controller: 'users', action: 'index' , user_id: 1
+    end
+  end
+
 end

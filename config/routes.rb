@@ -21,6 +21,7 @@ get 'activities' =>'activities#index'
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
   resources :users
   get 'friendships/create/:user_id/:receiver_id' =>'friendships#create'
+  get 'friendships/destroy/:user_id/:receiver_id' =>'friendships#destroy'
   get 'users/index/:user_id' =>'users#index'
   get 'users/friends/:user_id' =>'users#friends'
   resources :friendships
