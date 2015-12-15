@@ -25,7 +25,11 @@ get 'activities' =>'activities#index'
   get 'users/create' =>'users#create'
   get 'users/:id' =>'users#show'
   resources :users
-
+  
+  get 'friendships/create/:user_id/:receiver_id' =>'friendships#create'
+  get 'users/index/:user_id' =>'users#index'
+  get 'users/friends/:user_id' =>'users#friends'
+  resources :friendships
 
   get 'posts/new' =>'posts#new'
   get 'posts/create/:user_id/:receiver_id/:content' =>'posts#create'

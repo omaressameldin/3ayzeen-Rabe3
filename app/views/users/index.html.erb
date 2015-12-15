@@ -1,0 +1,9 @@
+<% for user in @users %>
+  <div class="user">
+    <p>
+      <strong><%=user.first_name %></strong>
+      <%= link_to "Add Friend", :controller => "friendships", :action => "create", :user_id => 1 , :receiver_id => user.id %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
