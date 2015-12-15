@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.find :all
+    @users = User.all
   end
 
   def show
@@ -14,6 +14,16 @@ class UsersController < ApplicationController
     @myPost = Post.where({user_id: params[:id]})
     @myPostc = @myPost.all.includes(:comments)
     @comment = Comment.new
+    @friendship = Friendship.all.where("user_id = ?", @user.id)
+    arr = Array.new
+    @friendship.each do |f|
+    arr.push(f.friend_id)
+    end
+    @friendship = Friendship.all.where("friend_id = ?", @user.id)
+    @friendship.each do |f|
+    arr.push(f.user_id)
+    end
+    render json: arr
   end
 
   def new

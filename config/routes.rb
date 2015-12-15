@@ -20,7 +20,9 @@ get 'activities' =>'activities#index'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
   resources :users
-
+  get 'friendships/create/:user_id/:receiver_id' =>'friendships#create'
+  get 'users/index/:user_id' =>'users#index'
+  resources :friendships
 
   get 'posts/new' =>'posts#new'
   post 'posts/create' =>'posts#create'
